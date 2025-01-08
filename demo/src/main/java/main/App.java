@@ -1,13 +1,22 @@
 package main;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
+    static int fibonacci(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        
+        return fibonacci(n - 1) + fibonacci(n - 2);
+        
+    }
+    
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        int n = 7;
+        int result = fibonacci(n - 1);
+        System.out.println(result);
     }
 }
+
+
