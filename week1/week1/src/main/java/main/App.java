@@ -1,20 +1,13 @@
 package main;
-
 import java.util.Scanner;
 
 /* Most java is learned through geeksforgeeks website and w3schools website */
 
 public class App {
 
-    /*
-     * This snippet of code below comes from chatGPT, or the idea of making
-     * defaulthedgehog a field so all methods in App can access the instance
-     */
-    private Hedgehog defaulthedgehog;
-
-    public void hedgehogProgram() {
-        this.defaulthedgehog = new Hedgehog();
-    }
+    /* creates the default instance */
+    
+    private Hedgehog currenthog = new Hedgehog("Pikseli", 5);
 
     /*
      * Method to create the menu and handle the user choices and the logic of each
@@ -37,11 +30,12 @@ public class App {
         switch (Choice) {
             case 1:
 
-                System.out.println("What does " + defaulthedgehog.name + " say?");
+                System.out.println("What does " + currenthog.name + " say?");
                 String hoggySays = scanner.nextLine();
-
-                System.out.println("My name is " + defaulthedgehog.name + "and my age is " + defaulthedgehog.age + ", "
-                        + hoggySays);
+                if (hoggySays == "") {
+                    System.out.print("I am " + currenthog.name + " and my age is " + currenthog.age + ", but could you still give me input values?");
+                }
+                System.out.println(hoggySays);
                 menu();
             case 2:
 
@@ -50,6 +44,7 @@ public class App {
                 System.out.println("What is the age of the hedgehog?");
 
                 /* The error handling here is partially from chatGPT */
+
                 int age = -1;
                 try {
                     age = Integer.parseInt(scanner.nextLine());
@@ -60,8 +55,10 @@ public class App {
                 } catch (NumberFormatException e) {
                     System.out.println("Wrong input value");
                 }
-                Hedgehog hedgehog = new Hedgehog(newname, age);
+                currenthog.name = newname;
+                currenthog.age = age;
                 menu();
+
             case 3:
                 System.out.println("How many laps?");
                 int laps = -1;
@@ -73,7 +70,8 @@ public class App {
                 } catch (NumberFormatException e) {
                     System.out.println("Wrong input value");
                 }
-                defaulthedgehog.run(laps);
+                currenthog.run(laps);
+                menu();
 
             case 0:
                 System.exit(0);
@@ -88,7 +86,6 @@ public class App {
 
     public static void main(String[] args) {
         App program = new App();
-        program.hedgehogProgram();
         program.menu();
     }
 
