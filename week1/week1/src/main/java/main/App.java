@@ -9,7 +9,9 @@ public class App {
 
         /* creates the default instance */
         
-        Hedgehog currenthog = new Hedgehog("Pikseli", 5);
+        Hedgehog defaulthog = new Hedgehog("Pikseli", 5);
+
+        Hedgehog activeHog = defaulthog;
 
         /*
         * creating the menu and handle the user choices and the logic of each
@@ -44,9 +46,9 @@ public class App {
                     System.out.println("What does hedgehog say?");
                     String hoggySays = scanner.nextLine();
                     if (hoggySays.isEmpty()) {
-                        System.out.println("I am " + currenthog.name + " and my age is " + currenthog.age + ", but could you still give me input values?");
+                        System.out.println("I am " + activeHog.name + " and my age is " + activeHog.age + ", but could you still give me input values?");
                     } else {
-                        System.out.println(currenthog.name + ": " + hoggySays);
+                        System.out.println(activeHog.name + ": " + hoggySays);
                     }
                     break;
                 case 2:
@@ -67,8 +69,8 @@ public class App {
                     } catch (NumberFormatException e) {
                         System.out.println("Wrong input value");
                     }
-                    currenthog.name = newname;
-                    currenthog.age = age;
+
+                    activeHog = new Hedgehog(newname, age);
                     break;
 
                 case 3:
@@ -79,7 +81,7 @@ public class App {
                     } catch (NumberFormatException e) {
                         System.out.println("Wrong input value");
                     }
-                    currenthog.run(laps);
+                    activeHog.run(laps);
                     break;
                 case -1:
                     System.out.println("Wrong input value");
