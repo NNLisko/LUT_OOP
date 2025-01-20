@@ -12,7 +12,7 @@ class Hedgehog {
         this.age = age;
     }
 
-    public void Speak(String sentence) {
+    public void speak(String sentence) {
         System.out.println(sentence);
     }
 
