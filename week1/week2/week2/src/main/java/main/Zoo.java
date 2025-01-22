@@ -1,6 +1,5 @@
 package main;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /* ZOO CLASS */
 public class Zoo {
@@ -13,20 +12,10 @@ public class Zoo {
     }
 
     /* User can add animals after logging their species name and age */    
-    public void addAnimals() {
-        Scanner scanner = new Scanner(System.in);
-        
-        /* getting new animal info */
-        System.out.println("What species?");
-        String animalSpecies = scanner.nextLine();
-        System.out.println("Enter the name of the animal:");
-        String animalName = scanner.nextLine();
-        System.out.println("Enter the age of the animal:");
-        int animalAge = Integer.parseInt(scanner.nextLine());
+    public void addAnimals(String animalSpecies, String animalName, int animalAge) {
 
         Animal newAnimal = new Animal(animalSpecies, animalName, animalAge);
         this.listOfAnimals.add(newAnimal);
-        scanner.close();
     }
     
     /* User can print out the animals nicely formatted */

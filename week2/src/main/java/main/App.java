@@ -9,17 +9,17 @@ public class App
         
         /* Creating the zoo instance */
 
-        System.out.println("Please name the zoo:");
+        System.out.println("Please, name the zoo:");
         String zooName = scanner.nextLine();
         Zoo zoo = new Zoo(zooName);
         
         /* While loop for the menu and choice handling */
 
         while (true) {
-            System.out.println("1) Create a new animal, 2) List all animals, 3) Run animals, 0) End program");
+            System.out.println("1) Create a new animal, 2) List all animals, 3) Run animals, 0) End the program");
             int choice = Integer.parseInt(scanner.nextLine());
             
-            if (choice > 3) {
+            if (choice > 3 || choice < 0) {
                 System.out.println("Wrong input value");
                 continue;
             }
