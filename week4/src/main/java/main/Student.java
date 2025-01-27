@@ -22,8 +22,15 @@ class Student {
         }
     }
 
+    /* So Max Lattunen helped me with this solution to the addGrade function
+     * Honestly in my opinion the index of the chosen student should be passed
+     * to the function as an argument instead of having to add it as a static
+     * variable
+     */
+    public static int selectedStudent = -1;
+
     public static void addGrade(String course, int grade) {
-        listStudents();
+
         System.out.println("What is the name of the course?");
         String courseName = App.scanner.nextLine();
         System.out.println("What is the grade of the course?");
