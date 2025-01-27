@@ -7,14 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseUtil {
+    String jdbcUrl = "jdbc:postgresql://localhost:5432/postgres";
+    String username = "Lisko";
+    String password = "masterchief";
     
     public void connection() throws ClassNotFoundException
     {
-        String jdbcUrl = "jdbc:postgresql://localhost:5432/postgres";
-        String username = "Lisko";
-        String password = "masterchief";
-
-
         Class.forName("org.postgresql.Driver");
 
         try {
@@ -24,9 +22,9 @@ public class DatabaseUtil {
 
             ResultSet resultset = statement.executeQuery("SELECT * FROM student");
 
-            
             resultset.close();
             statement.close(); 
+            
             connection.close();
 
         } catch (SQLException e) {
