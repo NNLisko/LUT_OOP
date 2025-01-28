@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class App {
     static Scanner scanner;
     static ArrayList<Student> listOfStudents;
@@ -15,7 +16,14 @@ public class App {
         while (true) {
             System.out.println(
                     "1) Add student, 2) List students, 3) Add course completion for student, 4)\nList course completions, 5) Calculate the average of course\ncompletions, 6) Calculate median course completions, 7) Save students to\nfile, 8) Load students from a file, 0) End the program");
-            int choice = Integer.parseInt(scanner.nextLine());
+            
+            int choice = -1;
+
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Wrong input donkey!");
+            }
 
             switch (choice) {
                 case 1:
@@ -76,11 +84,12 @@ public class App {
                     System.exit(0);
                     break;
 
+                case -1:
+                    break;
                 default:
-                    System.out.println("Wrong input donkey!");
+                    System.out.println("Out of range");
                     break;
             }
-
         }
     }
 }
