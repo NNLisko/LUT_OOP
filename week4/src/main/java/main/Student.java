@@ -6,12 +6,12 @@ class Student {
 
     String name;
     String studentID;
-    HashMap<String, String> completedCourses;
+    HashMap<String, Integer> completedCourses;
 
     public Student(String name, String studentID) {
         this.name = name;
         this.studentID = studentID;
-        this.completedCourses = new HashMap<String, String>();
+        this.completedCourses = new HashMap<String, Integer>();
     }
 
     public static void listStudents() {
@@ -34,7 +34,7 @@ class Student {
 
     public static int selectedStudent = -1;
 
-    public static void addGrade(String course, String grade) {
+    public static void addGrade(String course, int grade) {
         /* gets the selected student */
         Student student = App.listOfStudents.get(selectedStudent);
         /* adds the coursename, grade key value pair */
@@ -42,7 +42,7 @@ class Student {
     }
 
     public static void getGrades() {
-        HashMap<String, String> grades = App.listOfStudents.get(selectedStudent).completedCourses;
+        HashMap<String, Integer> grades = App.listOfStudents.get(selectedStudent).completedCourses;
         /*
          * lambda printing of hashmap at
          * https://stackoverflow.com/questions/5920135/printing-hashmap-in-java

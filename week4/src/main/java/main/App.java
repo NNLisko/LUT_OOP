@@ -3,7 +3,6 @@ package main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class App {
     static Scanner scanner;
     static ArrayList<Student> listOfStudents;
@@ -16,7 +15,7 @@ public class App {
         while (true) {
             System.out.println(
                     "1) Add student, 2) List students, 3) Add course completion for student, 4)\nList course completions, 5) Calculate the average of course\ncompletions, 6) Calculate median course completions, 7) Save students to\nfile, 8) Load students from a file, 0) End the program");
-            
+
             int choice = -1;
 
             try {
@@ -47,11 +46,11 @@ public class App {
                     Student.selectedStudent = Integer.parseInt(App.scanner.nextLine());
 
                     System.out.println("What is the name of the course?");
-                    String courseID = scanner.nextLine();
-                    System.out.println("What is the grade of the course?");
                     String courseName = scanner.nextLine();
+                    System.out.println("What is the grade of the course?");
+                    int grade = Integer.parseInt(scanner.nextLine());
 
-                    Student.addGrade(courseName, courseID);
+                    Student.addGrade(courseName, grade);
                     break;
 
                 case 4:
@@ -67,6 +66,10 @@ public class App {
                     break;
 
                 case 5:
+                    Student.listStudents();
+                    System.out.println("Which student?");
+                    int chocie = Integer.parseInt(scanner.nextLine());
+                    Calculator.getAverageGrade(listOfStudents.get(chocie));
                     break;
 
                 case 6:
