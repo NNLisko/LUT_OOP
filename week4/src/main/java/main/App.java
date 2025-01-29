@@ -68,11 +68,15 @@ public class App {
                 case 5:
                     Student.listStudents();
                     System.out.println("Which student?");
-                    int chocie = Integer.parseInt(scanner.nextLine());
-                    Calculator.getAverageGrade(listOfStudents.get(chocie));
+                    Student.selectedStudent = Integer.parseInt(scanner.nextLine());
+                    Calculator.getAverageGrade(listOfStudents.get(Student.selectedStudent));
                     break;
 
                 case 6:
+                    Student.listStudents();
+                    System.out.println("Which student?");
+                    Student.selectedStudent = Integer.parseInt(App.scanner.nextLine());
+                    Calculator.getMedianGrade(listOfStudents.get(Student.selectedStudent));
                     break;
 
                 case 7:

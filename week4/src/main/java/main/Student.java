@@ -2,7 +2,7 @@ package main;
 
 import java.util.HashMap;
 
-class Student {
+public class Student {
 
     String name;
     String studentID;
