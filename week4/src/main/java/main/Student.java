@@ -1,8 +1,9 @@
 package main;
 
 import java.util.HashMap;
+import java.io.Serializable;
 
-public class Student {
+public class Student implements Serializable{
 
     String name;
     String studentID;

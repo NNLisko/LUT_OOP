@@ -80,9 +80,11 @@ public class App {
                     break;
 
                 case 7:
+                    University.saveStudentsToFile();
                     break;
 
                 case 8:
+                    University.loadStudentsFromFile();
                     break;
 
                 case 0:
