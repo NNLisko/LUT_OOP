@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 
 public class University {
 
-    /* Learned about file writing from chatGPT and few stackoverflowpages */
+    /* Learned about file writing from chatGPT and few stackoverflow pages */
     public static void saveStudentsToFile() {
         String filename = "students.ser";
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
@@ -18,6 +18,7 @@ public class University {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static void loadStudentsFromFile() {
         String filename = "students.ser";
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))){

@@ -1,42 +1,43 @@
 package main;
 
-import java.util.ArrayList;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.*;
-import java.util.HashMap;
-import java.lang.Math;
 
 public class Calculator {
 
     public static void getAverageGrade(Student s) {
-        HashMap<String, Integer> courses = s.completedCourses;
-        ArrayList<Integer> grades = new ArrayList<>(courses.values());
-
-        int add = 0;
-        for (int num : grades) {
-            add += num;
+        ArrayList<Integer> grade = s.courseGrades;
+    
+        int sum = 0;
+        for (int num : grade) {
+            sum += num;
         }
 
-        float average = add / grades.size();
+        float avg = sum / grade.size();
 
-        System.out.println("Average is: " + average);
+        System.out.println("Average is " + avg);
     }
 
     public static void getMedianGrade(Student s) {
-        HashMap<String, Integer> courses = s.completedCourses;
-        ArrayList<Integer> grades = new ArrayList<>(courses.values());
-        Collections.sort(grades);
-        System.out.println(grades);
+        ArrayList<Integer> grade = new ArrayList<>(s.courseGrades);
+        Collections.sort(grade);
 
-        if (grades.size() % 2 == 0) {
-            int lowerIndex = grades.size() / 2 - 1;
-            int upperIndex = grades.size() / 2;
-            float median = (grades.get(lowerIndex) + grades.get(upperIndex)) / 2;
-            System.out.println("Median is " + grades.get(lowerIndex) + grades.get(upperIndex) + " / 2 = " +  median);
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat f = new DecimalFormat("#0.0", symbols);
+
+
+        if (grade.size() % 2 == 0) {
+            int lowIndex = grade.size() / 2 - 1;
+            int highIndex = grade.size() / 2;
+            float newMedian = (grade.get(lowIndex) + grade.get(highIndex)) / 2.0f;
+            System.out.println("Median is " + f.format(newMedian));
+
         } else {
-            int index = (int)Math.floor(grades.size() / 2);
-            int median = grades.get(index);
-            System.out.println("Median is " + median);
+            int indx = grade.size() / 2;
+            int newMedian = grade.get(indx);
+            System.out.println("Median is " + f.format(newMedian));
+
         }
     }
-    
 }

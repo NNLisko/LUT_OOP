@@ -14,7 +14,7 @@ public class App {
 
         while (true) {
             System.out.println(
-                    "1) Add student, 2) List students, 3) Add course completion for student, 4)\nList course completions, 5) Calculate the average of course\ncompletions, 6) Calculate median course completions, 7) Save students to\nfile, 8) Load students from a file, 0) End the program");
+                    "1) Add student, 2) List students, 3) Add course completion for student, 4) List course completions of student, 5) Calculate the average of course completions, 6) Calculate median of course completions, 7) Save students to file, 8) Load students from file, 0) End the program");
 
             int choice = -1;
 
