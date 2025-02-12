@@ -2,7 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
-public class App 
+public class Main 
 {
     public static void main( String[] args )
     {
@@ -23,7 +23,7 @@ public class App
         }
         System.out.println();
         int index = 1;
-        System.out.println("Student information:"); 
+        System.out.println("Student Information:"); 
         for (Student student : studentList) {
             System.out.println("Student " + index + " - Name: " + student.getName() + ", ID: " + student.getStudentId());
             index++;

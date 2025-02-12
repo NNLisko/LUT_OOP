@@ -2,61 +2,36 @@ package main;
 
 import java.util.ArrayList;
 
-public class Bookshelf {
-    ArrayList<Book> books = new ArrayList<Book>();
+class Bookshelf {
+    private ArrayList<Book> books = new ArrayList<Book>();
 
-    public Bookshelf() {
-
+    Bookshelf() {
     }
 
-    public void addBook(Book book) {
-
+    void addBook(Book book) {
+        books.add(book);
     }
 
-    public boolean removeBook(Book book) {
-        return true;
+    boolean removeBook(Book book) {
+        if (books.contains(book)) {
+            books.remove(book);
+            System.out.println();
+            System.out.println("Removing " + book.getTitle() + "...");
+            System.out.println();
+            System.out.println("Updated bookshelf contents:");
+            displayBooks();
+            return true;
+        }
+        System.out.println("Book not found.");
+        return false;
     }
 
-    public void displayBooks() {
-
-    }
-
-    public class Book {
-        String title;
-        String isbn;
-        Author author;
-
-        public Book(String title, String isbn, Author author) {
-
-        }
-
-        public String getTitle() {
-            return "fool";
-        }
-
-        public String getIsbn() {
-            return "fool";
-        }
-
-        public Author getAuthor() {
-        }
-
-        public class Author {
-            String name;
-            String nationality;
-
-            public Author(String name, String nationality) {
-
-            }
-            
-            public String getName() {
-                return "fool";
-            }
-
-            public String getNationality() {
-                return "fool";
-            }
+    void displayBooks() {
+        System.out.println("Books on the shelf:");
+        for (Book book : books) {
+            System.out.println("Title: " + book.getTitle() + ", Author: " + book.getAuthor().getName() + ", ISBN: " + book.getIsbn());
         }
     }
+
 }
 
