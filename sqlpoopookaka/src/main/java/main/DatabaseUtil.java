@@ -7,30 +7,32 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseUtil {
-    String jdbcUrl = "jdbc:postgresql://localhost:5432/postgres";
-    String username = "Lisko";
-    String password = "masterchief";
+    static String jdbcUrl = "jdbc:postgresql://localhost:5432/postgres";
+    static String username = "Lisko";
+    static String password = "masterchief";
     
-    public void connection() throws ClassNotFoundException
-    {
-        Class.forName("org.postgresql.Driver");
+    static ResultSet resultset;
+    static Connection connection;
+    static Statement statement;
 
+    public static void connection() throws ClassNotFoundException {
         try {
-            Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
-            
-            Statement statement = connection.createStatement();
-
-            ResultSet resultset = statement.executeQuery("SELECT * FROM student");
-
-            resultset.close();
-            statement.close(); 
-            
-            connection.close();
+            connection = DriverManager.getConnection(jdbcUrl, username, password);
+            statement = connection.createStatement();
+            resultset = statement.executeQuery("SELECT sno, sname FROM student");
 
         } catch (SQLException e) {
             System.out.println("sqlException");
         }
     }
 
-
+    public static void closeConnection() {
+        try {
+            resultset.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Closing failed.");
+        }
+    }
 }
