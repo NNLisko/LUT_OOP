@@ -18,6 +18,7 @@ public class University {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static void loadStudentsFromFile() {
         String filename = "students.ser";
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))){
