@@ -4,10 +4,12 @@ public class Driver {
     String name;
     String country;
     int totalPoints;
+    RallyCar car;
 
-    public Driver(String name, String country) {
+    public Driver(String name, String country, RallyCar car) {
         this.name = name;
         this.country = country;
+        this.car = car;
         this.totalPoints = 0;
     }
 
@@ -19,12 +21,16 @@ public class Driver {
         return this.country;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getPoints() {
+        return this.totalPoints;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public RallyCar getCar() {
+        return this.car;
+    }
+
+    public void setCar(RallyCar car) {
+        this.car = car;
     }
 
     public void addPoints(int points) {
